@@ -1,6 +1,7 @@
 // Containers
 import Layouts from './Layouts';
 import Modals from './Modals';
+import ListTodo from './ListTodo';
 
 const Main = () => {
   return (
@@ -8,6 +9,7 @@ const Main = () => {
       <Layouts>
         <div className='content'>
           <Modals />
+          <ListTodo />
         </div>
       </Layouts>
     </div>

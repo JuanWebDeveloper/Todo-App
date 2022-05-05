@@ -12,7 +12,6 @@
   z-index: -15;
 
   .modal-content {
-    background-color: $background_primary;
     box-shadow: $box_shadow_primary;
     border-radius: 5px;
     left: 50%;
@@ -22,7 +21,7 @@
 
     .modal-header {
       align-items: center;
-      background-color: $background_primary;
+      background-color: $background_secondary;
       display: flex;
       justify-content: space-between;
       position: relative;

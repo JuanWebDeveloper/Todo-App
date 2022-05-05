@@ -1,0 +1,45 @@
+.list-todo {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  .search-todo {
+    align-items: center;
+    height: 16%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+
+    form {
+      position: relative;
+      width: 50%;
+
+      input {
+        background-color: $background_third;
+        box-shadow: $box_shadow_third;
+        border: none;
+        border-radius: 5px;
+        font-size: $font_size_button;
+        font-weight: $font_weight_button;
+        height: 40px;
+        padding: 0 1rem;
+        transition: $transition;
+        width: 100%;
+
+        &:focus {
+          outline: none;
+          transform: scale(1.1);
+        }
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}
