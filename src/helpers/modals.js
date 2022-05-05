@@ -13,3 +13,19 @@ export const hideModalCreateTodo = () => {
   modal.classList.remove('show-modal');
   modal.classList.add('hide-modal');
 };
+
+// Function to show the modal from editing to-do
+export const showModalEditTodo = () => {
+  let modalEdit = document.querySelector('#modalEdit');
+
+  modalEdit.classList.contains('hide-modal') && modalEdit.classList.remove('hide-modal');
+  modalEdit.classList.add('show-modal');
+};
+
+// Function to hide the modal from editing to-do
+export const hideModalEditTodo = () => {
+  let modal = document.querySelector('#modalEdit');
+
+  modal.classList.remove('show-modal');
+  modal.classList.add('hide-modal');
+};
