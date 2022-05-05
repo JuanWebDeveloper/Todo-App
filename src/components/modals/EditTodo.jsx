@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 // Helpers
 import { showModalEditTodo, hideModalEditTodo } from '../../helpers/modals';
@@ -7,12 +8,16 @@ import { showModalEditTodo, hideModalEditTodo } from '../../helpers/modals';
 import { useForm } from '../hooks/useForm';
 
 export const EditTodo = () => {
+  const { state } = useSelector((state) => state);
+
+  // Handle form values
   const { formValues, setFormValues, handleInputChange } = useForm({ editTodo: '' });
   const { editTodo } = formValues;
 
   useEffect(() => {
     showModalEditTodo();
-    setFormValues({ editTodo: '' });
+    const { todoDescription } = state.isEditing;
+    setFormValues({ editTodo: todoDescription });
   }, []);
 
   return (

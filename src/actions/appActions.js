@@ -1,6 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import { types } from '../types/types';
 
+// This function is used to create a new todo
 export const actionToCreateTodo = (data) => {
   return (dispatch, getState) => {
     const newTodo = {
@@ -19,4 +20,10 @@ export const actionToCreateTodo = (data) => {
 const addNewTodo = (todo) => ({
   type: types.createTodo,
   payload: todo,
+});
+
+// This function is used to get a todo by id
+export const actionToGetTodoById = (id) => ({
+  type: types.getById,
+  payload: id,
 });
