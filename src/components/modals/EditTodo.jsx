@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 // Actions
-import { actionToCancelEdit } from '../../actions/appActions';
+import { actionToCancelEdit, actionToUpdateTodo } from '../../actions/appActions';
 
 // Helpers
 import { showModalEditTodo, hideModalEditTodo } from '../../helpers/modals';
@@ -18,6 +18,13 @@ export const EditTodo = () => {
   const { formValues, setFormValues, handleInputChange } = useForm({ editTodo: '' });
   const { editTodo } = formValues;
 
+  // Show and load the data you want to edit in the modal
+  useEffect(() => {
+    showModalEditTodo();
+    const { todoDescription } = state.isEditing;
+    setFormValues({ editTodo: todoDescription });
+  }, []);
+
   // Handle cancel editing
   const handleCancelEditing = () => {
     hideModalEditTodo();
@@ -27,12 +34,22 @@ export const EditTodo = () => {
     }, 600);
   };
 
-  // Show and load the data you want to edit in the modal
-  useEffect(() => {
-    showModalEditTodo();
-    const { todoDescription } = state.isEditing;
-    setFormValues({ editTodo: todoDescription });
-  }, []);
+  // Handle submit editing
+  const handleSubmitEditing = (e) => {
+    e.preventDefault();
+
+    hideModalEditTodo();
+
+    const todoEdited = {
+      id: state.isEditing.id,
+      todoDescription: editTodo,
+      isCompleted: state.isEditing.isCompleted,
+    };
+
+    setTimeout(() => {
+      dispatch(actionToUpdateTodo(todoEdited));
+    }, 600);
+  };
 
   return (
     <div className='modal' id='modalEdit'>
@@ -44,7 +61,7 @@ export const EditTodo = () => {
           </button>
         </div>
         <div className='modal-body'>
-          <form>
+          <form onSubmit={handleSubmitEditing}>
             <input type='text' name='editTodo' placeholder='Todo Description' value={editTodo} onChange={handleInputChange} required />
             <button className='button'>Edit</button>
           </form>

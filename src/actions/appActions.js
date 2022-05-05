@@ -32,3 +32,18 @@ export const actionToGetTodoById = (id) => ({
 export const actionToCancelEdit = () => ({
   type: types.cancelEdit,
 });
+
+// This function is used to update a todo
+export const actionToUpdateTodo = (todo) => {
+  return (dispatch, getState) => {
+    dispatch(updateTodo(todo));
+    const { todos } = getState().state;
+
+    localStorage.setItem('todos', JSON.stringify(todos));
+  };
+};
+
+const updateTodo = (todo) => ({
+  type: types.updateTodo,
+  payload: todo,
+});
