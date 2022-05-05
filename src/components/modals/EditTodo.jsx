@@ -1,6 +1,6 @@
 export const EditTodo = () => {
   return (
-    <div className='modal show-modal'>
+    <div className='modal'>
       <div className='modal-content'>
         <div className='modal-header'>
           <h4>Edit To-do</h4>
