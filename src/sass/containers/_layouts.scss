@@ -19,6 +19,12 @@
     h1 {
       margin-bottom: 0;
     }
+
+    h2 {
+      font-size: $font_size_sub_title;
+      font-weight: $font_weight_sub_title;
+      letter-spacing: 2px;
+    }
   }
 }
 
