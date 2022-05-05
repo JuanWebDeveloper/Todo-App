@@ -1,13 +1,24 @@
+import { useDispatch } from 'react-redux';
+import { actionToCreateTodo } from '../../actions/appActions';
+
 // Helpers
 import { hideModalCreateTodo } from '../../helpers/modals';
 import { useForm } from '../hooks/useForm';
 
 export const CreateTodo = () => {
-  const { formValues, handleInputChange } = useForm({
+  const dispatch = useDispatch();
+  const { formValues, setFormValues, handleInputChange } = useForm({
     createTodo: '',
   });
 
   const { createTodo } = formValues;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(actionToCreateTodo(formValues));
+    setFormValues({ createTodo: '' });
+    hideModalCreateTodo();
+  };
 
   return (
     <div className='modal'>
@@ -19,7 +30,7 @@ export const CreateTodo = () => {
           </button>
         </div>
         <div className='modal-body'>
-          <form>
+          <form onSubmit={handleSubmit}>
             <input type='text' name='createTodo' placeholder='Todo Description' value={createTodo} onChange={handleInputChange} required />
             <button className='button'>Create</button>
           </form>
