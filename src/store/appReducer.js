@@ -23,6 +23,13 @@ export const appReducer = (state = initialState, action) => {
         todoSearch: [...state.todoSearch],
         isSearching: state.isSearching,
       };
+    case types.cancelEdit:
+      return {
+        todos: [...state.todos],
+        isEditing: {},
+        todoSearch: [...state.todoSearch],
+        isSearching: state.isSearching,
+      };
     default:
       return state;
   }

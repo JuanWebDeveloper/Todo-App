@@ -27,3 +27,8 @@ export const actionToGetTodoById = (id) => ({
   type: types.getById,
   payload: id,
 });
+
+// This function is used to cancel edit
+export const actionToCancelEdit = () => ({
+  type: types.cancelEdit,
+});
