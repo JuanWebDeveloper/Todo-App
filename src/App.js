@@ -6,7 +6,7 @@ import { store } from './store/store';
 import Main from './containers/Main';
 
 // Application styles
-import './sass/styles.scss';
+import './assets/sass/styles.scss';
 
 const App = () => {
   return (
