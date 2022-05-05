@@ -17,7 +17,7 @@ export const CreateTodo = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(actionToCreateTodo(formValues));
+    dispatch(actionToCreateTodo(createTodo));
     setFormValues({ createTodo: '' });
     hideModalCreateTodo();
   };
