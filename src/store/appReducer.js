@@ -14,7 +14,7 @@ export const appReducer = (state = initialState, action) => {
         todos: [...state.todos, action.payload],
         isEditing: {},
         todoSearch: [...state.todoSearch],
-        isSearching: state.isSearching,
+        isSearching: false,
       };
     case types.getById:
       return {

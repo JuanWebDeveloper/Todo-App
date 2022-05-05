@@ -153,4 +153,56 @@
       }
     }
   }
+
+  // Styles of the no found to-dos
+  .no-found,
+  .no-created {
+    background-color: #e00b0b;
+    box-shadow: $box_shadow_primary;
+    border-radius: 5px;
+    color: #fdfdfd;
+    font-size: $font_size_sub_title;
+    font-weight: $font_weight_sub_title;
+    height: 0;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    transition: $transition;
+    padding: 0;
+  }
+
+  .no-created {
+    background-color: $background_third;
+    box-shadow: $box_shadow_secondary;
+    color: $color_text;
+    position: relative;
+
+    &::before {
+      border-radius: 5px;
+      box-shadow: $box_shadow_fourth;
+      content: '';
+      height: 100%;
+      left: 0%;
+      position: absolute;
+      top: 0%;
+      width: 100%;
+    }
+  }
+
+  .isActive {
+    animation: no-found-animation 0.5s forwards;
+  }
+
+  @keyframes no-found-animation {
+    0% {
+      height: 0;
+      letter-spacing: 1px;
+      padding: 0;
+    }
+
+    100% {
+      height: auto;
+      letter-spacing: 2px;
+      padding: 1rem;
+    }
+  }
 }
