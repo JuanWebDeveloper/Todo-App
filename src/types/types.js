@@ -4,4 +4,5 @@ export const types = {
   cancelEdit: 'Action to cancel edit',
   updateTodo: 'Action to update a todo',
   deleteTodo: 'Action to delete a todo',
+  todoSearch: 'Action to search todo',
 };

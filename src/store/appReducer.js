@@ -60,6 +60,13 @@ export const appReducer = (state = initialState, action) => {
         todoSearch: state.todoSearch.filter((todo) => todo.id !== action.payload),
         isSearching: state.isSearching,
       };
+    case types.todoSearch:
+      return {
+        todos: [...state.todos],
+        isEditing: {},
+        todoSearch: state.todos.filter((todo) => todo.todoDescription.toLowerCase().includes(action.payload.toLowerCase())),
+        isSearching: true,
+      };
     default:
       return state;
   }

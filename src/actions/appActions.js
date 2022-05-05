@@ -62,3 +62,9 @@ const deleteTodo = (id) => ({
   type: types.deleteTodo,
   payload: id,
 });
+
+// This function is used to search todo
+export const actionToSearchTodo = (search) => ({
+  type: types.todoSearch,
+  payload: search,
+});

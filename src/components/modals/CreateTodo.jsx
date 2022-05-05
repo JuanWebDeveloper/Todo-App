@@ -11,10 +11,9 @@ import { useForm } from '../../hooks/useForm';
 
 export const CreateTodo = () => {
   const dispatch = useDispatch();
-  const { formValues, setFormValues, handleInputChange } = useForm({
-    createTodo: '',
-  });
 
+  // Handle form values
+  const { formValues, setFormValues, handleInputChange } = useForm({ createTodo: '' });
   const { createTodo } = formValues;
 
   const handleSubmit = (e) => {
