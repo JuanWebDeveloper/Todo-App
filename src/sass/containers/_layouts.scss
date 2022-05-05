@@ -1,0 +1,62 @@
+// Header Styles
+.header {
+  background-color: $background_secondary;
+  box-shadow: $box_shadow_fourth;
+  height: 10%;
+  position: relative;
+  top: 0;
+  width: 100%;
+
+  .header-text {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    position: relative;
+    padding: 0 1rem;
+    width: 100%;
+
+    h1 {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Footer Styles
+.footer {
+  background-color: $background_secondary;
+  box-shadow: $box_shadow_fourth;
+  bottom: 0;
+  height: 10%;
+  position: relative;
+  width: 100%;
+
+  .footer-text {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+
+    span {
+      color: $color_text;
+      font-size: 1.438rem;
+      font-weight: $font_weight_text;
+
+      a {
+        color: $color_title;
+        font-weight: $font_weight_button;
+        transition: $transition;
+
+        &:hover {
+          letter-spacing: 2px;
+        }
+      }
+
+      span {
+        font-weight: $font_weight_button;
+      }
+    }
+  }
+}
