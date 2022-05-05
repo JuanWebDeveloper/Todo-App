@@ -53,6 +53,13 @@ export const appReducer = (state = initialState, action) => {
         }),
         isSearching: state.isSearching,
       };
+    case types.deleteTodo:
+      return {
+        todos: state.todos.filter((todo) => todo.id !== action.payload),
+        isEditing: {},
+        todoSearch: state.todoSearch.filter((todo) => todo.id !== action.payload),
+        isSearching: state.isSearching,
+      };
     default:
       return state;
   }

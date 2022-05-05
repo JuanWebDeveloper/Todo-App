@@ -8,7 +8,7 @@ import { actionToCancelEdit, actionToUpdateTodo } from '../../actions/appActions
 import { showModalEditTodo, hideModalEditTodo } from '../../helpers/modals';
 
 // Hooks
-import { useForm } from '../hooks/useForm';
+import { useForm } from '../../hooks/useForm';
 
 export const EditTodo = () => {
   const dispatch = useDispatch();

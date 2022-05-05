@@ -1,14 +1,16 @@
 import { useDispatch } from 'react-redux';
 
 // Actions
-import { actionToGetTodoById } from '../../actions/appActions';
+import { actionToGetTodoById, actionToDeleteTodo } from '../../actions/appActions';
 
 export const SingleTodo = ({ id, todoDescription, isCompleted }) => {
   const dispatch = useDispatch();
 
-  const handleEdit = () => {
-    dispatch(actionToGetTodoById(id));
-  };
+  // Action to update todo
+  const handleEdit = () => dispatch(actionToGetTodoById(id));
+
+  // Action to delete todo
+  const handleDelete = () => dispatch(actionToDeleteTodo(id));
 
   return (
     <div className={`single-todo ${isCompleted && 'isCompleted'}`}>
@@ -20,7 +22,7 @@ export const SingleTodo = ({ id, todoDescription, isCompleted }) => {
         <button className={`btn-edit ${isCompleted && 'disabled'}`} onClick={handleEdit}>
           <i className='fa-solid fa-pen-to-square'></i>
         </button>
-        <button className='btn-delete'>
+        <button className='btn-delete' onClick={handleDelete}>
           <i className='fa-solid fa-trash-can'></i>
         </button>
       </div>

@@ -7,7 +7,7 @@ import { actionToCreateTodo } from '../../actions/appActions';
 import { hideModalCreateTodo } from '../../helpers/modals';
 
 // Hooks
-import { useForm } from '../hooks/useForm';
+import { useForm } from '../../hooks/useForm';
 
 export const CreateTodo = () => {
   const dispatch = useDispatch();

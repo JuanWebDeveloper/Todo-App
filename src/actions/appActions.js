@@ -47,3 +47,18 @@ const updateTodo = (todo) => ({
   type: types.updateTodo,
   payload: todo,
 });
+
+// This function is used to delete a todo
+export const actionToDeleteTodo = (id) => {
+  return (dispatch, getState) => {
+    dispatch(deleteTodo(id));
+    const { todos } = getState().state;
+
+    localStorage.setItem('todos', JSON.stringify(todos));
+  };
+};
+
+const deleteTodo = (id) => ({
+  type: types.deleteTodo,
+  payload: id,
+});
