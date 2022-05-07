@@ -16,4 +16,4 @@ It is also good to clarify that this application has a better interface and inte
 
 # Demo of the application
 
-![Demo of the application](https://github.com/JuanWebDeveloper/Todo-App/tree/master/src/assets/image/appDemo.gif)
+![Demo of the application](./src/assets/image/appDemo.gif)
