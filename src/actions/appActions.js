@@ -64,7 +64,31 @@ const deleteTodo = (id) => ({
 });
 
 // This function is used to search todo
-export const actionToSearchTodo = (search) => ({
+export const actionToSearchTodo = (search) => {
+  return (dispatch, getState) => {
+    if (search.length > 0) {
+      const state = getState().state;
+
+      const filteredTodos = state.todos.filter((todo) => todo.todoDescription.toLowerCase().includes(search.toLowerCase()));
+
+      const todos = {
+        todos: filteredTodos,
+        isSearching: true,
+      };
+
+      dispatch(searchTodos(todos));
+    } else {
+      const todos = {
+        todos: [],
+        isSearching: false,
+      };
+
+      dispatch(searchTodos(todos));
+    }
+  };
+};
+
+export const searchTodos = (todos) => ({
   type: types.todoSearch,
-  payload: search,
+  payload: todos,
 });

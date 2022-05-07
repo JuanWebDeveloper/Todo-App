@@ -40,8 +40,8 @@ export const appReducer = (state = initialState, action) => {
     case types.todoSearch:
       return {
         ...state,
-        todoSearch: state.todos.filter((todo) => todo.todoDescription.toLowerCase().includes(action.payload.toLowerCase())),
-        isSearching: true,
+        todoSearch: action.payload.todos,
+        isSearching: action.payload.isSearching,
       };
     default:
       return state;
