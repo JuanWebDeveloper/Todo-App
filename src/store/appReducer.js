@@ -11,59 +11,35 @@ export const appReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.createTodo:
       return {
+        ...state,
         todos: [...state.todos, action.payload],
-        isEditing: {},
-        todoSearch: [...state.todoSearch],
-        isSearching: false,
       };
     case types.getById:
       return {
-        todos: [...state.todos],
+        ...state,
         isEditing: state.todos.find((todo) => todo.id === action.payload),
-        todoSearch: [...state.todoSearch],
-        isSearching: state.isSearching,
       };
     case types.cancelEdit:
       return {
-        todos: [...state.todos],
+        ...state,
         isEditing: {},
-        todoSearch: [...state.todoSearch],
-        isSearching: state.isSearching,
       };
     case types.updateTodo:
       return {
-        todos: state.todos.map((todo) => {
-          if (todo.id === action.payload.id) {
-            return {
-              ...todo,
-              ...action.payload,
-            };
-          }
-          return todo;
-        }),
+        ...state,
+        todos: state.todos.map((todo) => (todo.id === action.payload.id ? action.payload : todo)),
         isEditing: {},
-        todoSearch: state.todoSearch.map((todo) => {
-          if (todo.id === action.payload.id) {
-            return {
-              ...todo,
-              ...action.payload,
-            };
-          }
-          return todo;
-        }),
-        isSearching: state.isSearching,
+        todoSearch: state.todoSearch.length > 0 ? state.todoSearch.map((todo) => (todo.id === action.payload.id ? action.payload : todo)) : [],
       };
     case types.deleteTodo:
       return {
+        ...state,
         todos: state.todos.filter((todo) => todo.id !== action.payload),
-        isEditing: {},
-        todoSearch: state.todoSearch.filter((todo) => todo.id !== action.payload),
-        isSearching: state.isSearching,
+        todoSearch: state.todoSearch.length > 0 ? state.todoSearch.filter((todo) => todo.id !== action.payload) : [],
       };
     case types.todoSearch:
       return {
-        todos: [...state.todos],
-        isEditing: {},
+        ...state,
         todoSearch: state.todos.filter((todo) => todo.todoDescription.toLowerCase().includes(action.payload.toLowerCase())),
         isSearching: true,
       };
